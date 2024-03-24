@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 
 import requests
 import pandas as pd
@@ -25,9 +26,8 @@ def parse_specialities(soup, pattern=''):
             # If pattern is blank, include all items
             elif not pattern:
                 specialities = [li.text.strip() for li in list_items]
-    print(f"\tFound {len(specialities)}: [{', '.join(specialities)}]")
+    # print(f"\tFound {len(specialities)}: [{', '.join(specialities)}]")
     return specialities
-
 
 
 def parse_contact_info(soup, info_id):
@@ -76,7 +76,6 @@ def scrape_facility_details(facility, pattern=''):
 
 
 def main(specialty_pattern=''):
-
     for facility in facilities_data:
 
         # Create a new dict with only the required fields
@@ -105,4 +104,4 @@ def main(specialty_pattern=''):
     df.to_csv('facilities_details.csv', index=False)
 
 
-main("psych")
+main("psyc")
