@@ -104,4 +104,5 @@ def main(specialty_pattern=''):
     df.to_csv('facilities_details.csv', index=False)
 
 
+# Chance "psyc" to your pattern, or leave empty to get all
 main("psyc")
